@@ -5,8 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train Schedule</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- Moment.js time formatting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <!-- Initialize Firebase -->
+    <script>
+        var config = {
+            apiKey: "AIzaSyB7kw9GvTzH_sxJZY-0yXJb0gNk9TeX-Yg",
+            authDomain: "train-schedule-d6565.firebaseapp.com",
+            databaseURL: "https://train-schedule-d6565.firebaseio.com",
+            projectId: "train-schedule-d6565",
+            storageBucket: "train-schedule-d6565.appspot.com",
+            messagingSenderId: "640396383593"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- App -->
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
