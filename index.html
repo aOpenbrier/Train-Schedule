@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,47 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    
+    <header>
+        <h1>Train Schedule</h1>
+    </header>
+    <section>
+        <div class="sectTitle">
+            <h3>Schedule</h3>
+        </div>
+        <div class="sectBody">
+            <table>
+                <tr>
+                    <th>Name:</th>
+                    <th>Destination:</th>
+                    <th>Frequency:</th>
+                    <th>Next Arrival:</th>
+                    <th>Minutes Away:</th>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section>
+        <div class="sectTitle">
+            <h3>Add Train</h3>
+        </div>
+        <div class="sectBody">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="inName">
+                <label for="dest">Destination:</label>
+                <input type="text" name="dest" id="inDest">
+                <label for="name">First Arrival: (Format 24:00) </label>
+                <input type="text" name="first" id="inFirst">
+                <label for="name">Frequency: (In minutes)</label>
+                <input type="text" name="freq" id="inFreq">
+                <button type="submit">Add</button>
+            </form>
+        </div>
+
+
+    </section>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <!-- Moment.js time formatting -->
@@ -30,4 +70,5 @@
     <!-- App -->
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>
