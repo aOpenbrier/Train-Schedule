@@ -14,22 +14,28 @@
     <header>
         <h1>Train Schedule</h1>
     </header>
+    <!-- Train Schedule -->
     <section>
         <div class="sectTitle">
             <h3>Schedule</h3>
         </div>
         <div class="sectBody">
             <table>
-                <tr>
-                    <th>Name:</th>
-                    <th>Destination:</th>
-                    <th>Frequency:</th>
-                    <th>Next Arrival:</th>
-                    <th>Minutes Away:</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Name:</th>
+                        <th>Destination:</th>
+                        <th>Frequency:</th>
+                        <th>Next Arrival:</th>
+                        <th>Minutes Away:</th>
+                    </tr>
+                </thead>
+                <tbody id='js-schedule'>
+                </tbody>
             </table>
         </div>
     </section>
+    <!-- Add Train -->
     <section>
         <div class="sectTitle">
             <h3>Add Train</h3>
@@ -37,18 +43,16 @@
         <div class="sectBody">
             <form>
                 <label for="name">Name:</label>
-                <input type="text" name="name" id="inName">
+                <input type="text" name="name" id="js-name">
                 <label for="dest">Destination:</label>
-                <input type="text" name="dest" id="inDest">
+                <input type="text" name="dest" id="js-dest">
                 <label for="name">First Arrival: (Format 24:00) </label>
-                <input type="text" name="first" id="inFirst">
+                <input type="text" name="first" id="js-first">
                 <label for="name">Frequency: (In minutes)</label>
-                <input type="text" name="freq" id="inFreq">
-                <button type="submit">Add</button>
+                <input type="text" name="freq" id="js-freq">
+                <button type="submit" id="add" onclick="addTrain()">Add</button>
             </form>
         </div>
-
-
     </section>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
