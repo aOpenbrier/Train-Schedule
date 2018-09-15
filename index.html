@@ -6,22 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train Schedule</title>
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <header>
+    <header class='panel'>
         <h1>Timber Tracks</h1>
         <h2>Train Schedule Tool</h2>
     </header>
     <!-- Train Schedule -->
-    <section>
-        <div class="sectTitle">
-            <h3>Schedule</h3>
-        </div>
-        <div class="sectBody">
-            <table>
+    <section class="panel">
+                <h3>Schedule</h3>
+            <table class='pad'>
                 <thead>
                     <tr>
                         <th>Name:</th>
@@ -34,27 +32,26 @@
                 <tbody id='js-schedule'>
                 </tbody>
             </table>
-        </div>
     </section>
     <!-- Add Train -->
-    <section>
-        <div class="sectTitle">
-            <h3>Add Train</h3>
-        </div>
-        <div class="sectBody">
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="js-name">
-                <label for="dest">Destination:</label>
-                <input type="text" name="dest" id="js-dest">
-                <label for="name">First Arrival: (Format 24:00) </label>
-                <input type="text" name="first" id="js-first">
-                <label for="name">Frequency: (In minutes)</label>
-                <input type="text" name="freq" id="js-freq">
-                <button type="submit" id="add" onclick="addTrain()">Add</button>
+        <form>
+            <div class="panel">
+                <h3>Add Train</h3>
+                <div class="pad">
+
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="js-name">
+                    <label for="dest">Destination:</label>
+                    <input type="text" name="dest" id="js-dest">
+                    <label for="name">First Arrival: (Format 24:00) </label>
+                    <input type="text" name="first" id="js-first">
+                    <label for="name">Frequency: (In minutes)</label>
+                    <input type="text" name="freq" id="js-freq">
+                </div>
+            </div>
+                <button class='panel' type="submit" id="add" onclick="addTrain()">Confirm</button>
             </form>
-        </div>
-    </section>
+            <img class='chocobo' src="assets/images/Chocobo.png" alt="Chocobo">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <!-- Moment.js time formatting -->
