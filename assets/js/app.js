@@ -39,40 +39,51 @@ const trainRef = firebase.database().ref('trains')
 function addTrain() {
     //prevent page reload
     event.preventDefault()
-    //validate user input
+    //Validate name input. must not be empty
     let isValid = true
     if (document.getElementById('js-name').value === '') {
         isValid = false
         //error message
         console.error('name invalid')
     }
+    //Validate destination. must not be empty
     if (document.getElementById('js-dest').value === '') {
         isValid = false
         //error message
         console.error('destination invalid')
     }
-    /*FIXME:
-    //valid if contains ':', hour '0'-'23', and minutes '0'-'59'
+    //Validate first arrival time. Must contain ':', hour '0'-'23', and minutes '0'-'59'
     const firstArrivalArr = document.getElementById('js-first').value.split(':')
     console.log(firstArrivalArr)
-    if (parseInt(firstArrivalArr[0]) < 0 || parseInt(firstArrivalArr[1]) > 23) {
+    if (firstArrivalArr.length != 2) {
+        isValid = false
+        console.error('first arrival in wrong format')
+    }
+    if (parseInt(firstArrivalArr[0]) < 0 || parseInt(firstArrivalArr[0]) > 23) {
         isValid = false
         //error message
-        console.error('first arrival invalid')
-    }*/
-    if (parseInt(document.getElementById('js-freq').value) < 1) {
+        console.error('first arrival invalid. hour should be in 24 hour format 0 - 23')
+    }
+    if (parseInt(firstArrivalArr[1]) < 0 || parseInt(firstArrivalArr[1]) > 59) {
+        isValid = false
+        //error message
+        console.error('first arrival invalid. minutes should be beween 00 - 59')
+    }
+    //Validate frequency, must be number
+    if (parseInt(document.getElementById('js-freq').value) === NaN) {
         isValid = false
         //error message
         console.error('frequency invalid')
     }
-    //create object in database with input fields
-    if (isValid){
+    //Create object in database with input fields
+    if (isValid) {
         trainRef.push({
             name: document.getElementById('js-name').value,
             destination: document.getElementById('js-dest').value,
             first: document.getElementById('js-first').value,
             frequency: parseInt(document.getElementById('js-freq').value),
-            //clear any error messages
         })
+        //clear any error messages
+        console.clear()
     }
 }
