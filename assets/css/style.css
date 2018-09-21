@@ -60,6 +60,9 @@ input{
     border-bottom: 2px dashed white;
 }
 
+.error {
+    color: red;
+}
 button{
     color: white;
     cursor: pointer;

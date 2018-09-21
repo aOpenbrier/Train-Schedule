@@ -31,49 +31,56 @@ const trainRef = firebase.database().ref('trains')
             <td>${data.val().frequency}</td>
             <td>${moment(nextTrain).format('hh:mm a')}</td>
             <td>${howLong}</td>
-        `
-        document.getElementById('js-schedule').appendChild(row)
-    })
-
-//Add button function
-function addTrain() {
-    //prevent page reload
-    event.preventDefault()
+            `
+            document.getElementById('js-schedule').appendChild(row)
+        })
+        
+        //Add button function
+        function addTrain() {
+            //prevent page reload
+            event.preventDefault()
+            document.getElementsByClassName('js-input-error').innerHTML = ''
     //Validate name input. must not be empty
     let isValid = true
     if (document.getElementById('js-name').value === '') {
         isValid = false
         //error message
-        console.error('name invalid')
+        document.getElementById('js-name-error').innerHTML = 'Enter a name'
     }
     //Validate destination. must not be empty
     if (document.getElementById('js-dest').value === '') {
         isValid = false
         //error message
-        console.error('destination invalid')
+        document.getElementById('js-dest-error').innerHTML = 'Enter a destination.'
     }
     //Validate first arrival time. Must contain ':', hour '0'-'23', and minutes '0'-'59'
-    const firstArrivalArr = document.getElementById('js-first').value.split(':')
-    console.log(firstArrivalArr)
+    let firstArrivalArr = document.getElementById('js-first').value.split(':')
     if (firstArrivalArr.length != 2) {
         isValid = false
-        console.error('first arrival in wrong format')
+        document.getElementById('js-first-error').innerHTML = 'Invalid time format. Use HH:mm'
     }
-    if (parseInt(firstArrivalArr[0]) < 0 || parseInt(firstArrivalArr[0]) > 23) {
+    firstArrivalArr[0] = parseInt(firstArrivalArr[0])
+    firstArrivalArr[1] = parseInt(firstArrivalArr[1])
+    if (isNaN(firstArrivalArr[0]) || isNaN(firstArrivalArr[1]) ) {
         isValid = false
         //error message
-        console.error('first arrival invalid. hour should be in 24 hour format 0 - 23')
+        document.getElementById('js-first-error').innerHTML = 'Invalid time format. Use HH:mm'
     }
-    if (parseInt(firstArrivalArr[1]) < 0 || parseInt(firstArrivalArr[1]) > 59) {
+    if (firstArrivalArr[0] < 0 || firstArrivalArr[0] > 23) {
         isValid = false
         //error message
-        console.error('first arrival invalid. minutes should be beween 00 - 59')
+        document.getElementById('js-first-error').innerHTML = 'Invalid hours. Use 00-23'
+    }
+    if (firstArrivalArr[1] < 0 || firstArrivalArr[1] > 59) {
+        isValid = false
+        //error message
+        document.getElementById('js-first-error').innerHTML = 'Invalid minutes. Use 00-59'
     }
     //Validate frequency, must be number
-    if (parseInt(document.getElementById('js-freq').value) === NaN) {
+    if (isNaN(parseInt(document.getElementById('js-freq').value))) {
         isValid = false
         //error message
-        console.error('frequency invalid')
+        document.getElementById('js-freq-error').innerHTML = 'Enter minutes'
     }
     //Create object in database with input fields
     if (isValid) {
@@ -85,5 +92,6 @@ function addTrain() {
         })
         //clear any error messages
         console.clear()
+        document.getElementsByClassName('js-input-error').innerHTML = ''
     }
 }
