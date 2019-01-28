@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'VT323', monospace;
+}
+
+body{
+    background: url(../images/bg-railway.jpg) top center / cover fixed black;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+header{
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+h3{
+    text-shadow: 3px 0px black, -3px 0 black, 0px 3px black, 0px -3px black;
+}
+
+header, section {
+    margin-bottom: 5px;
+}
+
+.panel{
+    background: linear-gradient(90deg, #222222, #555555, #222222);
+    border: 3px outset #555555;
+    border-radius: 1px;
+    width: 100%;
+}
+
+.pad{
+    margin: 5px;
+}
+
+th{
+    border-bottom: 1px solid gray;
+}
+    
+input{
+    color: white;
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px dashed white;
+}
+
+.error {
+    color: red;
+}
+button{
+    color: white;
+    cursor: pointer;
+}
+
+.chocobo{
+    position: fixed;
+    bottom: 5px;
+    right: 0;
+    z-index: -1;
+}
