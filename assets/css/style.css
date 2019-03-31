@@ -63,9 +63,13 @@ input{
 .error {
     color: red;
 }
+
 button{
+    background-color: transparent;
+    border: none;
     color: white;
     cursor: pointer;
+    width: 100%;
 }
 
 .chocobo{
@@ -73,4 +77,17 @@ button{
     bottom: 5px;
     right: 0;
     z-index: -1;
+}
+
+@media only screen and (max-width: 426px){
+.panel {
+    padding: 5px;
+}
+input, button {
+    padding: 10px 0;
+}
+input {
+    margin-bottom: 5px;
+}
+    
 }
