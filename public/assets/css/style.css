@@ -4,20 +4,23 @@
 
 html{
     font-family: 'VT323', monospace;
-    min-height: 100%
+    min-height: 100%;
 }
 
 body{
-    background: url(../images/bg-railway.jpg) top center / cover fixed black;
+    min-height: 100vh;
+    position: relative;
+    background: url(../images/bg-railway.jpg) top center / cover black;
     padding: 5px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     color: white;
 }
 
-header{
+header, section{
     text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
 }
 
 h1 {
@@ -30,17 +33,13 @@ h1, h2, h3 {
 }
 
 h3{
+    text-align: left;
     text-shadow: 3px 0px black, -3px 0 black, 0px 3px black, 0px -3px black;
     line-height: 1em;
     position: relative;
     bottom: 8px;
     right: 5px;
     margin-bottom: -8px;
-
-}
-
-header, section {
-    margin-bottom: 5px;
 }
 
 .panel{
@@ -48,7 +47,6 @@ header, section {
     background: linear-gradient(90deg, #222222, #555555, #222222);
     border: 3px outset #555555;
     border-radius: 1px;
-    width: 100%;
 }
 
 table {
@@ -69,10 +67,21 @@ input{
     border-bottom: 2px dashed white;
 }
 
-.error {
-    color: red;
-}
 
+form {
+    align-self: flex-start;
+}
+label {
+    line-height: 1em;
+    position: relative;
+}
+.error {
+    width: 200px;
+    color: red;
+    position: absolute;
+    top: .8em;
+    left: 0;
+}
 button{
     background-color: transparent;
     border: none;
@@ -82,12 +91,14 @@ button{
 }
 
 .chocobo{
-    position: fixed;
+    position: absolute;
     bottom: 5px;
     right: 0;
     z-index: -1;
+    height: 25vh;
 }
 
+/*  Touch devices, larger touch element size */
 @media only screen and (pointer: coarse){
     button {
         padding: 10px 0;
@@ -99,6 +110,7 @@ button{
     }
 }
 
+/* Small screens: fit table content */
 @media only screen and (max-width: 480px){
     .panel table, .panel label {
         font-size: 14px;
@@ -106,5 +118,25 @@ button{
     } 
     tr {
         margin-bottom: 10px;
+    }
+}
+
+/* Correctly positioned chocobo */
+
+@media only screen and (min-aspect-ratio: 11/10){
+    .chocobo {
+        right: 25%
+    }
+}
+
+@media only screen and (min-aspect-ratio: 8/5){
+    .chocobo {
+        right: 30%
+    }
+}
+
+@media only screen and (min-aspect-ratio: 9/5){
+    .chocobo {
+        right: 36%
     }
 }
