@@ -4,6 +4,7 @@
 
 html{
     font-family: 'VT323', monospace;
+    min-height: 100%
 }
 
 body{
@@ -30,6 +31,12 @@ h1, h2, h3 {
 
 h3{
     text-shadow: 3px 0px black, -3px 0 black, 0px 3px black, 0px -3px black;
+    line-height: 1em;
+    position: relative;
+    bottom: 8px;
+    right: 5px;
+    margin-bottom: -8px;
+
 }
 
 header, section {
@@ -37,14 +44,16 @@ header, section {
 }
 
 .panel{
+    padding: 5px;
     background: linear-gradient(90deg, #222222, #555555, #222222);
     border: 3px outset #555555;
     border-radius: 1px;
     width: 100%;
 }
 
-.pad{
-    margin: 5px;
+table {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 th{
@@ -63,9 +72,13 @@ input{
 .error {
     color: red;
 }
+
 button{
+    background-color: transparent;
+    border: none;
     color: white;
     cursor: pointer;
+    width: 100%;
 }
 
 .chocobo{
@@ -73,4 +86,25 @@ button{
     bottom: 5px;
     right: 0;
     z-index: -1;
+}
+
+@media only screen and (pointer: coarse){
+    button {
+        padding: 10px 0;
+    }
+    input {
+        padding-top: 20px;
+        margin-top: -10px;
+        margin-bottom: 5px;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .panel table, .panel label {
+        font-size: 14px;
+        line-height: 1em;
+    } 
+    tr {
+        margin-bottom: 10px;
+    }
 }
