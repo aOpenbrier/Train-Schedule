@@ -1,35 +1,39 @@
 const trainRef = firebase.database().ref('trains')
 
-    trainRef.on('child_added', function (data) {
-        //create row for each train object in array
-        var row = document.createElement('tr')
-        
-        // calculate and format next arrival time
-        const timeNow = moment()
-        const trainfreq = data.val().frequency
-        // Set nextTrain to first arrival time then add frequency until passed the current time
-        let nextTrain = moment(data.val().first, 'H:mm')
-        while (nextTrain < timeNow) {
-            nextTrain = moment(nextTrain).add(trainfreq, 'm')
-        }
-        //calculate minutes until arrival
-        let howLong = moment(timeNow).to(nextTrain, true)
-        //Display train info in table
-        row.innerHTML = `
+trainRef.on('child_added', function (data) {
+    //create row for each train object in array
+    var row = document.createElement('tr')
+
+    // calculate and format next arrival time
+    const timeNow = moment()
+    const trainfreq = data.val().frequency
+    // Set nextTrain to first arrival time then add frequency until passed the current time
+    let nextTrain = moment(data.val().first, 'H:mm')
+    while (nextTrain < timeNow) {
+        nextTrain = moment(nextTrain).add(trainfreq, 'm')
+    }
+    //calculate minutes until arrival
+    let howLong = moment(timeNow).to(nextTrain, true)
+    //Display train info in table
+    row.innerHTML = `
             <td>${data.val().name}</td>
             <td>${data.val().destination}</td>
             <td>${data.val().frequency}</td>
             <td>${moment(nextTrain).format('hh:mm a')}</td>
             <td>${howLong}</td>
             `
-            document.getElementById('js-schedule').appendChild(row)
-        })
-        
-        //Add button function
-        function addTrain() {
-            //prevent page reload
-            event.preventDefault()
-            document.getElementsByClassName('js-input-error').innerHTML = ''
+    document.getElementById('js-schedule').appendChild(row)
+})
+
+// Add button function
+function addTrain() {
+    // Prevent page reload
+    event.preventDefault()
+    // Clear any previos errors
+    let errorArr = document.getElementsByClassName('js-input-error')
+    for (let i = 0; i < errorArr.length; i++) {
+        errorArr[i].innerHTML = ''
+    }
     //Validate name input. must not be empty
     let isValid = true
     if (document.getElementById('js-name').value === '') {
@@ -51,7 +55,7 @@ const trainRef = firebase.database().ref('trains')
     }
     firstArrivalArr[0] = parseInt(firstArrivalArr[0])
     firstArrivalArr[1] = parseInt(firstArrivalArr[1])
-    if (isNaN(firstArrivalArr[0]) || isNaN(firstArrivalArr[1]) ) {
+    if (isNaN(firstArrivalArr[0]) || isNaN(firstArrivalArr[1])) {
         isValid = false
         //error message
         document.getElementById('js-first-error').innerHTML = 'Invalid time format. Use HH:mm'
