@@ -88,3 +88,16 @@ function addTrain() {
         document.getElementsByClassName('js-input-error').innerHTML = ''
     }
 }
+
+document.addEventListener('click', function (event) {
+    if (!event.target.matches('.modal')) {
+        console.log(event.target)
+        if (document.getElementById('aboutModal').classList.contains('modalOpen')) {
+            document.getElementById('aboutModal').classList.remove('modalOpen')
+        }
+    }
+})
+
+function openModal() {
+    document.getElementById('aboutModal').classList.toggle('modalOpen')
+}
