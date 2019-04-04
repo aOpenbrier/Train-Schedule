@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Train Schedule</title>
+    <title>Timber Tracks Train Schedule</title>
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -50,6 +50,32 @@
             <button type="submit" id="add" onclick="addTrain()">Confirm</button>
         </div>
     </form>
+    <div id="aboutTrigger" class="panel modal">
+        <button type="button" class='modal' onclick="openModal()">About</button>
+    </div>
+    <div id='aboutModal' class="modalContent">
+        <div class="panel modal">
+            <h3>About</h3>
+            <p>
+                Final Fantasy VIII themed train schedule application. View upcoming train arrival times and add new trains to schedule.
+            </p>
+            <h4>Tools used:</h4>
+            <ul>
+                <li>Firebase Hosting</li>
+                <li>Firebase Database</li>
+                <li>Moment.js</li>
+            </ul>
+            <h4>Code:</h4>
+            <p><a class='modal' href='https://github.com/aOpenbrier/Train-Schedule'><span class="extLink"></span>🡕GitHub</a></p>
+            <h4>Author:</h4>
+            <p>Adam Openbrier</p>
+            <p>
+                <a class='modal' href="https://aopenbrier.github.io/"><span class="extLink"></span>🡕About</a>
+                <a class='modal' href="https://aopenbrier.github.io/portfolio.html"><span class="extLink"></span>🡕Portfolio</a>
+            </p>
+        </div>
+    </div>
+
     <img class='chocobo' src="assets/images/Chocobo.png" alt="Chocobo">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>

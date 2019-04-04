@@ -28,7 +28,7 @@ h1 {
     font-weight: 100;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, p, ul {
     margin: 0;
 }
 
@@ -98,6 +98,37 @@ button{
     height: 25vh;
 }
 
+.extLink {
+    width: .5em;
+    height: .5em;
+    display: inline-block;
+    margin-right: -.5em;
+    border: 1px solid white;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#aboutTrigger {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 5em;
+}
+
+.modalContent {
+    position: absolute;
+    top: -100vh;
+    width: 50%;
+    left: 25%;
+    box-shadow: 0 0 50vw black;
+}
+
+.modalOpen {
+    top: 25%;
+}
 /*  Touch devices, larger touch element size */
 @media only screen and (pointer: coarse){
     button {
